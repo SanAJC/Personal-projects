@@ -1,0 +1,25 @@
+{% extends 'layouts/layout.html' %}
+
+
+{%block title%} {{article.title}} {%endblock%}
+
+
+{%block content%}
+    <h1 class="title">{{article.title}}</h1>
+
+    {% if article.image != 'null' and article.image.url %}
+
+                    <div class="image">
+                        <img src="{{article.image.url}}"/>
+                    </div>
+
+    {%endif%}
+
+    <spam class="date">{{article.created_at}}</spang>
+
+    <p class="content">
+        {{article.content|safe}}
+        #Lo interpreta como html y no texto plano 
+    </p>
+
+{%endblock%}

@@ -1,0 +1,52 @@
+{% extends 'layouts/layout.html' %}
+
+
+{%block title%} {{title}} {%endblock%}
+
+
+{%block content%}
+    <h1 class="title">{{title}}</h1>
+    {%for article in articles%}
+
+            <article class="article-item">
+                {% if article.image != 'null' and article.image.url %}
+
+                    <div class="image">
+                        <img src="{{article.image.url}}"/>
+                    </div>
+
+                {%endif%}
+
+                <div class="content">
+
+                    <h2> 
+                        <a href="{%url 'article' article.id%}">
+                        {{article.title}}
+                        </a>
+                    </h2>
+                    <p>
+                        {%for category in article.categories.all%}
+                            <a href="#">{{category}}</a>  
+
+                            {% if forloop.counter < article.categories.all|length%}
+                                {{'|'}}
+                            {%endif%}
+                             
+                        {%endfor%}
+                    </p>
+                    <span class="date">
+                        {{article.user}}
+                        |
+                        {{article.created_at}}
+                    </span> 
+                   
+                   
+
+                    <p>{{article.content|safe}}</p>
+
+                </div>
+                {%include 'articles/pagination.html'%}
+                <div class="clearfix"></div>
+            </article>
+        {% endfor %}
+{%endblock%}
