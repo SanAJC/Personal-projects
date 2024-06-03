@@ -7,7 +7,7 @@
 {%block content%}
     <form class="formulario" method="post" action="">
         {% csrf_token %}
-        <h1>{{title}}</h1>
+        <h1 class="title">{{title}}</h1>
         <br>
         <div class="containe">
           <img src="https://cdn-icons-png.flaticon.com/512/1914/1914868.png" alt="Imagen" class="image">
@@ -76,9 +76,9 @@
 
 
 {%block content_admin %}
-    <h1>Login in</h1>
+    <h1 class="title">Login in</h1>
     <br>
-    <p>Ver Regsitros | <a href="{% url 'admin:index' %}" class="Ingresar">Ir al Panel de Administración</a></p>
+    <p class="title">Ver Regsitros | <a href="{% url 'admin:index' %}" class="Ingresar">Ir al Panel de Administración</a></p>
     <br>
     <div class="containe">
       <img src="https://cdn.icon-icons.com/icons2/2407/PNG/512/login_gov_icon_146024.png" alt="Imagen" class="img">
